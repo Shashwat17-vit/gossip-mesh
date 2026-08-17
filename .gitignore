@@ -1,0 +1,11 @@
+# Private keys live here. Never commit them.
+.gossipmesh/
+.gossipmesh-*/
+*.key
+
+# Built binaries. The ~ file is what Go leaves behind on Windows when it
+# rebuilds a binary that is currently running.
+/gossipmesh
+*.exe
+*.exe~
+/scratch/
