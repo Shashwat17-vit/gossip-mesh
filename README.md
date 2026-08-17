@@ -19,6 +19,18 @@ It is also, deliberately, a from-scratch implementation of the subsystems
 a secure channel, and gossip-based pubsub — at the smallest size that still
 works. See [Relationship to libp2p](#relationship-to-libp2p).
 
+<!-- Add docs/demo.gif, then delete this line and the one closing the comment below.
+
+## Demo
+
+Two nodes on the same network: bob appears in alice's terminal without either
+side being told the other exists, and messages flow both ways, signed and
+encrypted.
+
+![Two nodes discovering each other and exchanging encrypted messages](docs/demo.gif)
+
+-->
+
 ---
 
 ## Quick start
