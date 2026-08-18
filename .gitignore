@@ -8,4 +8,8 @@
 /gossipmesh
 *.exe
 *.exe~
+
+# Raw screen recordings. Only the compressed demo in docs/ belongs in git.
+*.mp4
+!docs/demo.mp4
 /scratch/
