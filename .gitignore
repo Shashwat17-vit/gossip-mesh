@@ -12,4 +12,7 @@
 # Raw screen recordings. Only the compressed demo in docs/ belongs in git.
 *.mp4
 !docs/demo.mp4
+
+# Personal working notes, not for the public repo.
+NOTES.md
 /scratch/
