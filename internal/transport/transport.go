@@ -69,6 +69,10 @@ func ListenMulticast(iface *net.Interface, group *net.UDPAddr) (*net.UDPConn, er
 	if err != nil {
 		return nil, fmt.Errorf("transport: join %s on %s: %w (a firewall may be blocking it; --peer host:port is the fallback)", group, iface.Name, err)
 	}
+	if err := enableMulticastLoopback(conn); err != nil {
+		conn.Close()
+		return nil, fmt.Errorf("transport: enable multicast loopback on %s: %w", iface.Name, err)
+	}
 	return conn, nil
 }
 

@@ -79,6 +79,19 @@ involves no server:
 ./gossipmesh --name bob   --peer 192.168.1.42:9101   # or 127.0.0.1:9101 on one machine
 ```
 
+### A Windows quirk worth knowing
+
+Several nodes on one Windows machine used to never find each other, and the
+firewall took the blame for a while. The real cause was in the standard library:
+`net.ListenMulticastUDP` turns `IP_MULTICAST_LOOP` off on the socket it returns.
+On Unix that option governs the *sending* path, so switching it off on a
+receive-only socket costs nothing. Windows applies it to the *receiving* path,
+so the listener silently discarded every multicast packet that originated on the
+same machine — no error, no dropped-packet counter, just an empty peer list.
+
+`internal/transport/loopback_windows.go` sets the option back on after the join,
+which is why `TestTwoNodesDiscoverViaMulticast` runs instead of skipping there.
+
 ### What a working session looks like
 
 Real output from two nodes on one machine, with `--verbose` on the first one so
