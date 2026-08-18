@@ -104,18 +104,6 @@ key. Trust is first-seen, so comparing fingerprints out of band is the defence
 against impersonation. And recipients are fixed at send time, so a peer who
 joins later relays messages it cannot read.
 
-## Tests
-
-```bash
-go test ./...
-go test -race ./...     # needs a C toolchain
-```
-
-Malformed-input coverage for the parser (bad magic, lying lengths, truncation at
-every offset, inflated counts), forgery and replay rejection for the crypto, a
-socket-free anti-entropy convergence test for gossip, and two real nodes
-exchanging an encrypted message over live sockets.
-
 ## Flags
 
 | Flag | Default | Purpose |
